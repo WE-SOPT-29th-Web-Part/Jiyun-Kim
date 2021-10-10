@@ -19,7 +19,7 @@
           />
         </button>
         <button class="header__login">
-          <h3 class="header__login-text">로그인</h3>
+          <b>로그인</b>
         </button>
       </div>
     </header>
@@ -31,11 +31,11 @@
             src="assets/icons/trending_up_black_24dp.svg"
             alt="trending_up"
           />
-          <h4 class="nav__trending-text">트렌딩</h4>
+          <b>트렌딩</b>
         </button>
         <button class="nav__new">
           <img class="nav__new-icon" src="assets/icons/clock.svg" alt="clock" />
-          <span class="nav__new-text">최신</span>
+          최신
         </button>
         <button class="nav__select">
           <span class="nav__select-text"><b>이번 주</b></span>
@@ -57,24 +57,25 @@
     <main class="post">
       <section class="post__trending">
         <div class="post__card">
-          <!-- <img
-            src="https://media.vlpt.us/images/koremp/post/41cec128-5eca-4bba-9de8-74852fe1b224/ar.jpg?w=640"
-          /> -->
-          <div class="post__content">
+          <img
+            class="post__img"
+            src="https://media.vlpt.us/images/tmdckzm/post/5d6ce4f2-34bc-496d-80ae-698e28a194b2/%E1%84%82%E1%85%A6%E1%86%BA%E1%84%91%E1%85%B3%E1%86%AF%E1%84%85%E1%85%B5%E1%84%89%E1%85%B3%20%E1%84%8C%E1%85%A5%E1%86%AB%E1%84%8E%E1%85%A6.gif?w=640"
+          />
+          <article class="post__content">
             <h4 class="post__name">신입 개발자가 알면 좋은 개발 외적인 ...</h4>
-            <article class="post__text">
+            <div class="post__text">
               입사 전에 알고 오시면 회사 적응이 빨라질 3가지 개념을 간단히
-              목록으로 만들었습니다. 이슈, 협업 도구, 질문에 대해 다룹니다.
-            </article>
+              목록으로 만들었습니다.
+            </div>
             <footer class="post__footer">
               <span class="post__date">2021년 9월 27일</span>
               · <span class="post__reply">8개의 댓글</span>
             </footer>
-          </div>
-          <div class="post__info">
+          </article>
+          <footer class="post__info">
             <div class="post__profile">
               <img
-                class="post__picture"
+                class="post__profile-img"
                 src="https://media.vlpt.us/images/jereint20/profile/bf42eb3e-8277-45dd-927d-f832908f5382/profile_circle_ver2@2x.png?w=120"
                 alt="profile"
               />
@@ -89,27 +90,27 @@
               />
               <span class="post__heart-rating">50</span>
             </div>
-          </div>
+          </footer>
         </div>
         <div class="post__card">
           <img
             class="post__img"
             src="https://media.vlpt.us/images/koremp/post/41cec128-5eca-4bba-9de8-74852fe1b224/ar.jpg?w=640"
           />
-          <div class="post__content">
+          <article class="post__content">
             <h4 class="post__name">신입 개발자가 알면 좋은 개발 외적인 ...</h4>
-            <article class="post__text">
+            <div class="post__text">
               회사 20개 면접 광탈 이후 지금까지 과정, 60초 후에 공개됩니다!
-            </article>
+            </div>
             <footer class="post__footer">
               <span>2021년 9월 28일</span>
               · <span>8개의 댓글</span>
             </footer>
-          </div>
-          <div class="post__info">
+          </article>
+          <footer class="post__info">
             <div class="post__profile">
               <img
-                class="post__picture"
+                class="post__profile-img"
                 src="https://media.vlpt.us/images/koremp/profile/4a28b4b3-cd4e-4b52-a012-7a9a4602a767/sss.png?w=120"
                 alt="profile"
               />
@@ -124,97 +125,28 @@
               />
               <span class="post__heart-rating">50</span>
             </div>
-          </div>
-        </div>
-        <div class="post__card">
-          <!-- <img
-            src="https://media.vlpt.us/images/koremp/post/41cec128-5eca-4bba-9de8-74852fe1b224/ar.jpg?w=640"
-          /> -->
-          <div class="post__content">
-            <h4 class="post__name">신입 개발자가 알면 좋은 개발 외적인 ...</h4>
-            <article class="post__text">
-              입사 전에 알고 오시면 회사 적응이 빨라질 3가지 개념을 간단히
-              목록으로 만들었습니다. 이슈, 협업 도구, 질문에 대해 다룹니다.
-            </article>
-            <footer class="post__footer">
-              <span>2021년 9월 27일</span>
-              · <span>8개의 댓글</span>
-            </footer>
-          </div>
-          <div class="post__info">
-            <div class="post__profile">
-              <img
-                class="post__picture"
-                src="https://media.vlpt.us/images/jereint20/profile/bf42eb3e-8277-45dd-927d-f832908f5382/profile_circle_ver2@2x.png?w=120"
-                alt="profile"
-              />
-              <span class="post__by">by</span>
-              <span class="post__author"><b>koremp</b></span>
-            </div>
-            <div class="post__heart">
-              <img
-                class="post__heart-icon"
-                src="./assets/icons/favorite_black_24dp.svg"
-                alt="heart"
-              />
-              <span class="post__heart-rating">50</span>
-            </div>
-          </div>
+          </footer>
         </div>
         <div class="post__card">
           <img
             class="post__img"
-            src="https://media.vlpt.us/images/koremp/post/41cec128-5eca-4bba-9de8-74852fe1b224/ar.jpg?w=640"
+            src="https://media.vlpt.us/images/tmdckzm/post/5d6ce4f2-34bc-496d-80ae-698e28a194b2/%E1%84%82%E1%85%A6%E1%86%BA%E1%84%91%E1%85%B3%E1%86%AF%E1%84%85%E1%85%B5%E1%84%89%E1%85%B3%20%E1%84%8C%E1%85%A5%E1%86%AB%E1%84%8E%E1%85%A6.gif?w=640"
           />
-          <div class="post__content">
+          <article class="post__content">
             <h4 class="post__name">신입 개발자가 알면 좋은 개발 외적인 ...</h4>
-            <article class="post__text">
-              회사 20개 면접 광탈 이후 지금까지 과정, 60초 후에 공개됩니다!
-            </article>
-            <footer class="post__footer">
-              <span>2021년 9월 28일</span>
-              · <span>8개의 댓글</span>
-            </footer>
-          </div>
-          <div class="post__info">
-            <div class="post__profile">
-              <img
-                class="post__picture"
-                src="https://media.vlpt.us/images/koremp/profile/4a28b4b3-cd4e-4b52-a012-7a9a4602a767/sss.png?w=120"
-                alt="profile"
-              />
-              <span class="post__by">by</span>
-              <span class="post__author"><b>koremp</b></span>
-            </div>
-            <div class="post__heart">
-              <img
-                class="post__heart-icon"
-                src="./assets/icons/favorite_black_24dp.svg"
-                alt="heart"
-              />
-              <span class="post__heart-rating">50</span>
-            </div>
-          </div>
-        </div>
-        <div class="post__card">
-          <!-- <img
-            src="https://media.vlpt.us/images/koremp/post/41cec128-5eca-4bba-9de8-74852fe1b224/ar.jpg?w=640"
-          /> -->
-          <div class="post__content">
-            <h4 class="post__name">신입 개발자가 알면 좋은 개발 외적인 ...</h4>
-            <article class="post__text">
+            <div class="post__text">
               입사 전에 알고 오시면 회사 적응이 빨라질 3가지 개념을 간단히
-              목록으로 만들었습니다. 이슈, 협업 도구, 질문에 대해 다룹니다.
-            </article>
+              목록으로 만들었습니다.
+            </div>
             <footer class="post__footer">
               <span class="post__date">2021년 9월 27일</span>
               · <span class="post__reply">8개의 댓글</span>
             </footer>
-          </div>
-          <div class="post__info">
+          </article>
+          <footer class="post__info">
             <div class="post__profile">
               <img
-                class="post__picture"
+                class="post__profile-img"
                 src="https://media.vlpt.us/images/jereint20/profile/bf42eb3e-8277-45dd-927d-f832908f5382/profile_circle_ver2@2x.png?w=120"
                 alt="profile"
               />
@@ -229,27 +161,27 @@
               />
               <span class="post__heart-rating">50</span>
             </div>
-          </div>
+          </footer>
         </div>
         <div class="post__card">
           <img
             class="post__img"
             src="https://media.vlpt.us/images/koremp/post/41cec128-5eca-4bba-9de8-74852fe1b224/ar.jpg?w=640"
           />
-          <div class="post__content">
+          <article class="post__content">
             <h4 class="post__name">신입 개발자가 알면 좋은 개발 외적인 ...</h4>
-            <article class="post__text">
+            <div class="post__text">
               회사 20개 면접 광탈 이후 지금까지 과정, 60초 후에 공개됩니다!
-            </article>
+            </div>
             <footer class="post__footer">
               <span>2021년 9월 28일</span>
               · <span>8개의 댓글</span>
             </footer>
-          </div>
-          <div class="post__info">
+          </article>
+          <footer class="post__info">
             <div class="post__profile">
               <img
-                class="post__picture"
+                class="post__profile-img"
                 src="https://media.vlpt.us/images/koremp/profile/4a28b4b3-cd4e-4b52-a012-7a9a4602a767/sss.png?w=120"
                 alt="profile"
               />
@@ -264,32 +196,33 @@
               />
               <span class="post__heart-rating">50</span>
             </div>
-          </div>
+          </footer>
         </div>
         <div class="post__card">
-          <!-- <img
-            src="https://media.vlpt.us/images/koremp/post/41cec128-5eca-4bba-9de8-74852fe1b224/ar.jpg?w=640"
-          /> -->
-          <div class="post__content">
+          <img
+            class="post__img"
+            src="https://media.vlpt.us/images/tmdckzm/post/5d6ce4f2-34bc-496d-80ae-698e28a194b2/%E1%84%82%E1%85%A6%E1%86%BA%E1%84%91%E1%85%B3%E1%86%AF%E1%84%85%E1%85%B5%E1%84%89%E1%85%B3%20%E1%84%8C%E1%85%A5%E1%86%AB%E1%84%8E%E1%85%A6.gif?w=640"
+          />
+          <article class="post__content">
             <h4 class="post__name">신입 개발자가 알면 좋은 개발 외적인 ...</h4>
-            <article class="post__text">
+            <div class="post__text">
               입사 전에 알고 오시면 회사 적응이 빨라질 3가지 개념을 간단히
-              목록으로 만들었습니다. 이슈, 협업 도구, 질문에 대해 다룹니다.
-            </article>
+              목록으로 만들었습니다.
+            </div>
             <footer class="post__footer">
-              <span>2021년 9월 27일</span>
-              · <span>8개의 댓글</span>
+              <span class="post__date">2021년 9월 27일</span>
+              · <span class="post__reply">8개의 댓글</span>
             </footer>
-          </div>
-          <div class="post__info">
+          </article>
+          <footer class="post__info">
             <div class="post__profile">
               <img
-                class="post__picture"
+                class="post__profile-img"
                 src="https://media.vlpt.us/images/jereint20/profile/bf42eb3e-8277-45dd-927d-f832908f5382/profile_circle_ver2@2x.png?w=120"
                 alt="profile"
               />
               <span class="post__by">by</span>
-              <span class="post__author"><b>koremp</b></span>
+              <span class="post__author"><b>jereint20</b></span>
             </div>
             <div class="post__heart">
               <img
@@ -299,27 +232,27 @@
               />
               <span class="post__heart-rating">50</span>
             </div>
-          </div>
+          </footer>
         </div>
         <div class="post__card">
           <img
             class="post__img"
             src="https://media.vlpt.us/images/koremp/post/41cec128-5eca-4bba-9de8-74852fe1b224/ar.jpg?w=640"
           />
-          <div class="post__content">
+          <article class="post__content">
             <h4 class="post__name">신입 개발자가 알면 좋은 개발 외적인 ...</h4>
-            <article class="post__text">
+            <div class="post__text">
               회사 20개 면접 광탈 이후 지금까지 과정, 60초 후에 공개됩니다!
-            </article>
+            </div>
             <footer class="post__footer">
               <span>2021년 9월 28일</span>
               · <span>8개의 댓글</span>
             </footer>
-          </div>
-          <div class="post__info">
+          </article>
+          <footer class="post__info">
             <div class="post__profile">
               <img
-                class="post__picture"
+                class="post__profile-img"
                 src="https://media.vlpt.us/images/koremp/profile/4a28b4b3-cd4e-4b52-a012-7a9a4602a767/sss.png?w=120"
                 alt="profile"
               />
@@ -334,7 +267,78 @@
               />
               <span class="post__heart-rating">50</span>
             </div>
-          </div>
+          </footer>
+        </div>
+        <div class="post__card">
+          <img
+            class="post__img"
+            src="https://media.vlpt.us/images/tmdckzm/post/5d6ce4f2-34bc-496d-80ae-698e28a194b2/%E1%84%82%E1%85%A6%E1%86%BA%E1%84%91%E1%85%B3%E1%86%AF%E1%84%85%E1%85%B5%E1%84%89%E1%85%B3%20%E1%84%8C%E1%85%A5%E1%86%AB%E1%84%8E%E1%85%A6.gif?w=640"
+          />
+          <article class="post__content">
+            <h4 class="post__name">신입 개발자가 알면 좋은 개발 외적인 ...</h4>
+            <div class="post__text">
+              입사 전에 알고 오시면 회사 적응이 빨라질 3가지 개념을 간단히
+              목록으로 만들었습니다.
+            </div>
+            <footer class="post__footer">
+              <span class="post__date">2021년 9월 27일</span>
+              · <span class="post__reply">8개의 댓글</span>
+            </footer>
+          </article>
+          <footer class="post__info">
+            <div class="post__profile">
+              <img
+                class="post__profile-img"
+                src="https://media.vlpt.us/images/jereint20/profile/bf42eb3e-8277-45dd-927d-f832908f5382/profile_circle_ver2@2x.png?w=120"
+                alt="profile"
+              />
+              <span class="post__by">by</span>
+              <span class="post__author"><b>jereint20</b></span>
+            </div>
+            <div class="post__heart">
+              <img
+                class="post__heart-icon"
+                src="./assets/icons/favorite_black_24dp.svg"
+                alt="heart"
+              />
+              <span class="post__heart-rating">50</span>
+            </div>
+          </footer>
+        </div>
+        <div class="post__card">
+          <img
+            class="post__img"
+            src="https://media.vlpt.us/images/koremp/post/41cec128-5eca-4bba-9de8-74852fe1b224/ar.jpg?w=640"
+          />
+          <article class="post__content">
+            <h4 class="post__name">신입 개발자가 알면 좋은 개발 외적인 ...</h4>
+            <div class="post__text">
+              회사 20개 면접 광탈 이후 지금까지 과정, 60초 후에 공개됩니다!
+            </div>
+            <footer class="post__footer">
+              <span>2021년 9월 28일</span>
+              · <span>8개의 댓글</span>
+            </footer>
+          </article>
+          <footer class="post__info">
+            <div class="post__profile">
+              <img
+                class="post__profile-img"
+                src="https://media.vlpt.us/images/koremp/profile/4a28b4b3-cd4e-4b52-a012-7a9a4602a767/sss.png?w=120"
+                alt="profile"
+              />
+              <span class="post__by">by</span>
+              <span class="post__author"><b>koremp</b></span>
+            </div>
+            <div class="post__heart">
+              <img
+                class="post__heart-icon"
+                src="./assets/icons/favorite_black_24dp.svg"
+                alt="heart"
+              />
+              <span class="post__heart-rating">50</span>
+            </div>
+          </footer>
         </div>
       </section>
       <section class="post__new"></section>

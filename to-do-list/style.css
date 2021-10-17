@@ -61,10 +61,18 @@ footer {
 
 .todos__today,
 .todos__tomorrow {
-  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 0;
+  visibility: hidden;
+  transition: all 300ms ease;
+}
+
+.todos__today.open,
+.todos__tomorrow.open {
+  width: 100%;
+  visibility: visible;
 }
 
 .todos__today {

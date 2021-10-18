@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>velog</title>
     <link rel="stylesheet" href="./style.css" />
+    <script defer src="main.js"></script>
   </head>
   <body>
     <header class="header">
@@ -37,14 +38,22 @@
           <img class="nav__new-icon" src="assets/icons/clock.svg" alt="clock" />
           최신
         </button>
-        <button class="nav__select">
-          <span class="nav__select-text"><b>이번 주</b></span>
-          <img
-            class="nav__dropdown-icon"
-            src="assets/icons/arrow_drop_down_black_24dp.svg"
-            alt="dropdown"
-          />
-        </button>
+        <div class="nav__select">
+          <button class="nav__select-btn">
+            <span class="nav__select-text"><b>이번 주</b></span>
+            <img
+              class="nav__dropdown-icon"
+              src="assets/icons/arrow_drop_down_black_24dp.svg"
+              alt="dropdown"
+            />
+          </button>
+          <ul class="nav__dropdown open">
+            <li class="nav__dropdown-item"><b>오늘</b></li>
+            <li class="nav__dropdown-item select"><b>이번 주</b></li>
+            <li class="nav__dropdown-item"><b>이번 달</b></li>
+            <li class="nav__dropdown-item"><b>올해</b></li>
+          </ul>
+        </div>
       </div>
       <button class="nav__list">
         <img

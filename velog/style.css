@@ -126,9 +126,10 @@ section {
   width: 96px;
   height: 32px;
   padding: 0 8px;
-  display: flex;
   background-color: white;
   color: rgb(73, 80, 87);
+  display: flex;
+  justify-content: space-between;
   font-size: 0.875rem;
   align-items: center;
   box-shadow: 0 2px 10px -5px rgba(0, 0, 0, 0.2);
@@ -176,6 +177,10 @@ section {
 
 .nav__dropdown-item.select {
   color: rgb(18, 184, 134);
+}
+
+.nav__dropdown-item:hover {
+  background-color: rgb(248, 249, 250);
 }
 
 .post_new {

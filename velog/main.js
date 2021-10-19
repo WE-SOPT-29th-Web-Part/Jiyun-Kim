@@ -1,4 +1,4 @@
-import Dropdown from './dropdown.js';
+import Dropdown from './component/dropdown.js';
 import {qs, qsAll} from './utils.js';
 
 "use strict";

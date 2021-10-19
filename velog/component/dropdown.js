@@ -1,4 +1,4 @@
-import {qs, qsAll} from './utils.js';
+import {qs, qsAll} from '../utils.js';
 
 export default class Dropdown {
     constructor() {

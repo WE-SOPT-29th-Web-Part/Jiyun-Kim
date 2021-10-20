@@ -206,8 +206,9 @@ section {
   height: 376px;
 }
 
-.post__card:hover {
+section .post__card:hover {
   transform: translateY(-7px);
+  cursor: pointer;
   box-shadow: 0 6px 14px -5px rgba(0, 0, 0, 0.2);
 }
 
@@ -275,6 +276,36 @@ section {
   height: 100%;
   width: 15px;
   margin-right: 8px;
+}
+
+.post__modal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+  height: 100%;
+  background-color: rgba(126, 126, 126, 0.541);
+  /* opacity: 70%; */
+  visibility: hidden;
+}
+
+.post__modal.open {
+  visibility: visible;
+}
+
+.post__modal-btn {
+  background-color: rgb(52, 58, 64);
+  color: white;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  padding: 1px 6px;
 }
 
 .header,

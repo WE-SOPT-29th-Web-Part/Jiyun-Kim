@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>To Do List</title>
     <link rel="stylesheet" href="style.css" />
+    <script src="main.js" defer></script>
   </head>
   <body>
     <header class="header">
@@ -17,7 +18,7 @@
       <button class="options__together">함께 보기</button>
     </nav>
     <main class="todos">
-      <section class="todos__today">
+      <section class="todos__today open">
         <h2 class="todos__header">오늘 할 일</h2>
         <div class="todos__add-item">
           <input class="todos__input" type="text" />
@@ -27,22 +28,9 @@
             </button>
           </div>
         </div>
-        <ul class="todos__items">
-          <li class="todos__item">
-            <span class="todos__name">HTML 공부</span>
-            <button class="todos__delete">
-              <img src="./assets/icons/close_black_24dp.svg" alt="delete" />
-            </button>
-          </li>
-          <li class="todos__item">
-            <span class="todos__name">CSS 공부</span>
-            <button class="todos__delete">
-              <img src="./assets/icons/close_black_24dp.svg" alt="delete" />
-            </button>
-          </li>
-        </ul>
+        <ul class="todos__items"></ul>
       </section>
-      <section class="todos__tomorrow">
+      <section class="todos__tomorrow open">
         <h2 class="todos__header">내일 할 일</h2>
         <div class="todos__add-item">
           <input class="todos__input" type="text" />
@@ -52,20 +40,7 @@
             </button>
           </div>
         </div>
-        <ul class="todos__items">
-          <li class="todos__item">
-            <span class="todos__name">JavaScript 공부</span>
-            <button class="todos__delete">
-              <img src="./assets/icons/close_black_24dp.svg" alt="delete" />
-            </button>
-          </li>
-          <li class="todos__item">
-            <span class="todos__name">React 공부</span>
-            <button class="todos__delete">
-              <img src="./assets/icons/close_black_24dp.svg" alt="delete" />
-            </button>
-          </li>
-        </ul>
+        <ul class="todos__items"></ul>
       </section>
     </main>
     <footer class="footer">SOPT 29th WEB Part</footer>

@@ -25,7 +25,7 @@ export default class PostCardModal {
 
         this.$target.addEventListener('click', e => {
             if (e.target.classList.contains('post__modal-btn')) {
-                this.onClickDeleteBtn
+                this.onClickDeleteBtn();
             }
         });
     }

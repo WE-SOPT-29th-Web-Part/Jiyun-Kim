@@ -15,22 +15,29 @@ export default class PostCardModal {
             ${this.$postCard.outerHTML} 
             <button class="post__modal-btn">X</button>
         `;
-        document.body.style.overflow = 'hidden';
     }
 
     setEvent() {
         this.$main.addEventListener('click', e => {
             this.$postCard = e.target.closest('.post__card');
-            if (this.$postCard) {
-                this.$target.classList.add('open');
-                this.render();
-            }
+            if (this.$postCard) this.onClickCard();
         });
 
         this.$target.addEventListener('click', e => {
             if (e.target.classList.contains('post__modal-btn')) {
-                this.$target.classList.remove('open');
+                this.onClickDeleteBtn
             }
         });
+    }
+
+    onClickCard() {
+        this.$target.classList.add('open');
+        document.body.style.overflow = 'hidden';
+        this.render();
+    }
+
+    onClickDeleteBtn() {
+        this.$target.classList.remove('open');
+        document.body.style.overflow = 'visible';
     }
 }

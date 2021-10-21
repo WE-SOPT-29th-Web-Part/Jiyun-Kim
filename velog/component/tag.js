@@ -26,7 +26,7 @@ export default class Tag {
         });
 
         this.$target.addEventListener('click', e => {
-            this.deleteTag(e.target);
+            this.onClickDeleteTag(e.target);
         })
     }
 
@@ -44,7 +44,7 @@ export default class Tag {
         this.render();
     }
 
-    deleteTag(tag) {
+    onClickDeleteTag(tag) {
         tag.remove();
     }
 }

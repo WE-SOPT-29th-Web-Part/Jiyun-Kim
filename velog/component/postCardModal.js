@@ -1,8 +1,5 @@
 import { createElem, qs } from "../utils.js";
 
-// 2. 모달 창 만들기
-// - 모달 창 뜨면 배경, 모달 클릭해도 아무런 반응이 없음
-// - x버튼을 누르면 모달 창 꺼짐
 export default class PostCardModal {
     constructor() {
         this.$main = qs('main');

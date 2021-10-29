@@ -1,0 +1,81 @@
+html,
+body,
+#root {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  margin: 0;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 500px;
+  height: 500px;
+  box-shadow: 5px 5px 15px 5px black;
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+}
+
+.header {
+  margin: 0 30px 50px 0;
+}
+
+.date {
+  margin-bottom: 30px;
+}
+
+.todayBtn {
+  width: 100%;
+}
+
+.dateInput {
+  display: flex;
+  flex-direction: center;
+  align-items: center;
+}
+
+.dateInput__input {
+  width: 50px;
+}
+
+.centerText {
+  width: 100%;
+  background-color: gray;
+  color: white;
+  /* border-bottom: 1px gray solid; */
+  margin-bottom: 10px;
+  height: 20px;
+  line-height: 20px;
+  text-align: center;
+}
+
+.result {
+  width: 100%;
+}
+
+.text {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer {
+}

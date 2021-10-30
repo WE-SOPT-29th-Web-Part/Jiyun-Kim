@@ -8,14 +8,16 @@ const Result = ({userInfo, setUserInfo}) => {
     return !userInfo.login ? <></> : (
         
         <Root>
-            <button onClick={() => {setUserInfo({})}}>닫기</button>
+                <a href={html_url} target="_blank">
+                    <img src="https://play-lh.googleusercontent.com/PCpXdqvUWfCW1mXhH1Y_98yBpgsWxuTSTofy3NGMo9yBTATDyzVkqU580bfSln50bFU" />
+                </a>
+                <button onClick={() => {setUserInfo({})}}>닫기</button>
             <Profile
                 avatarUrl={avatar_url}
                 name={name}
                 login={login}
                 bio={bio}
             ></Profile>
-            <a href={html_url} target="_blank">Visit Github</a>
             <ResultFooter
                 followers={followers}
                 following={following}
@@ -50,32 +52,48 @@ const Root = styled.article`
   }
 
   /* styled component의 장점 => 중첩 스타일링이 가능 */
-
+  /* & > button {} */
   & > button {
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    width: 50px;
-    height: 30px;
-    background-color: rgb(36, 39, 43);
-    color: white;
-    outline: none;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        width: 50px;
+        height: 30px;
+        background-color: rgb(36, 39, 43);
+        color: white;
+        outline: none;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
 
   & > a {
-      color: gold;
-      border: 1px solid gold;
-      border-radius: 5px;
-      padding: 8px;
+      position: absolute;
+      top: 15px;
+      right: 70px;
+      /* border: 1px solid gold; */
+      border-radius: 50%;
+      /* padding: 8px; */
       text-decoration: none;
-      &:hover {
+
+      & > img {
+          border-radius: 50%;
+          width: 30px;
+          height: 30px;
+      }
+
+      /* &:hover {
           background-color: gold;
           color: rgb(44, 48, 53);
-      }
-  }
+      } */
+
+    }
+`;
+
+const Buttons = styled.div`
+    display: flex;
+
+    
 `;
 
 

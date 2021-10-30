@@ -1,5 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
+import Profile from './Profile';
+import ResultFooter from './ResultFooter';
 
 const Result = ({userInfo, setUserInfo}) => {
     const {avatar_url, name, login, bio, html_url, followers, following, public_repos} = userInfo;
@@ -7,25 +9,18 @@ const Result = ({userInfo, setUserInfo}) => {
         
         <Root>
             <button onClick={() => {setUserInfo({})}}>닫기</button>
-            <img src={avatar_url} alt="avatar" />
-            <h3>{name}</h3>
-            <h4>{login}</h4>
-            <p>{bio}</p>
+            <Profile
+                avatarUrl={avatar_url}
+                name={name}
+                login={login}
+                bio={bio}
+            ></Profile>
             <a href={html_url} target="_blank">Visit Github</a>
-            <Ul>
-                <li>
-                    <strong>Followers</strong>
-                    {followers}
-                </li>
-                <li>
-                    <strong>Following</strong>
-                    {following}
-                    </li>
-                <li>
-                    <strong>Repos</strong>
-                    {public_repos}
-                </li>
-            </Ul>
+            <ResultFooter
+                followers={followers}
+                following={following}
+                publicRepos={public_repos}
+            ></ResultFooter>
         </Root>
     );
 };
@@ -70,29 +65,6 @@ const Root = styled.article`
     cursor: pointer;
   }
 
-  & > img {
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    margin-top: 30px;
-  }
-
-  & > h3 {
-      font-size: 24px;
-      margin-top: 24px;
-      font-weight: bold;
-  }
-
-  & > h4 {
-      font-size: 14px;
-      margin-top: 5px;
-  }
-
-  & > p {
-      padding: 20px 45px;
-      text-align: center;
-  }
-
   & > a {
       color: gold;
       border: 1px solid gold;
@@ -106,37 +78,6 @@ const Root = styled.article`
   }
 `;
 
-const Ul = styled.ul`
-  display: flex;
-  width: 100%;
-  margin-top: 25px;
 
-  & > li {
-      width: 130px;
-      height: 59px;
-      background-color: rgb(36, 39, 43);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      line-height: 1.5;
-      border-right: 5px solid rgb(44, 48, 53);
-      border-left: 5px solid rgb(44, 48, 53);
-
-      & > strong {
-          font-weight: bold;
-      }
-
-        &:nth-child(1) {
-            border-left: none;
-            border-bottom-left-radius: 20px;
-        }
-
-        &:nth-child(3) {
-            border-right: none; 
-            border-bottom-right-radius: 20px;
-        }
-    }
-`;
 
 export default Result;

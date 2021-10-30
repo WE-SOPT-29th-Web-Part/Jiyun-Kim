@@ -11,13 +11,31 @@ const Search = ({setUserInfo}) => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        //서버에 있는 데이터를 받아오는 방법
-        //서버 통신이 필요하다. 서버 통신에는 받아오는데 시간이 걸린다 => 비동기다
-        //비동기 처리를 하기 위한 방법 => async await
-        //axios는 서버 통신을 도와주는 툴
-        const {data} = await axios.get(`https://api.github.com/users/${user}`);
-        setUserInfo(data);
-        setUser('');
+
+        //괄호로 묶으면 return문 생략 가능
+        //현재의 status와 data 값을 풀어헤치고, status 값만 pending으로 바꿔줌.
+        setUserInfo((currentUserInfo) => ({...currentUserInfo, status: "pending"}));
+        
+        try {
+            //서버에 있는 데이터를 받아오는 방법
+            //서버 통신이 필요하다. 서버 통신에는 받아오는데 시간이 걸린다 => 비동기다
+            //비동기 처리를 하기 위한 방법 => async await
+            //axios는 서버 통신을 도와주는 툴
+            const {data} = await axios.get(`https://api.github.com/users/${user}`);
+            setUserInfo((currentUserInfo) => ({
+                ...currentUserInfo,
+                data,   //key value가 같을 때 다음과 같이 : 안 해줘도 됨
+                status: "resolved",
+            }));
+            setUser('');
+        } catch(err) {
+            setUserInfo((currentUserInfo) => ({
+                ...currentUserInfo,
+                data: null,
+                status: "rejected",
+            }));
+            console.log(err);
+        }
         //구조분해할당
     };
 

@@ -1,12 +1,14 @@
 import { useState, useEffect } from 'react';
 import './App.css';
 import Header from './components/Header';
-import Result from './components/Result';
+import Result2 from './components/Result2';
 import Search from './components/Search';
 import styled from 'styled-components';
 
 function App() {
-  const [userInfo, setUserInfo] = useState({});
+  const [userInfo, setUserInfo] = useState({data: null, status: 'idle'});
+
+  //아무 데이터도 받아오지 않은 상태 => idle
 
   useEffect(() => {
     console.log(userInfo);
@@ -18,10 +20,15 @@ function App() {
       <Search
         setUserInfo={setUserInfo}
       ></Search>
-      <Result
+      <Result2
         userInfo={userInfo}
         setUserInfo={setUserInfo}
-      ></Result>
+      ></Result2>
+
+      {/* <Result
+        userInfo={userInfo}
+        setUserInfo={setUserInfo}
+      ></Result> */}
     </Root>
   );
 }

@@ -14,7 +14,6 @@ const Search = ({setUserInfo}) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(user);
         //괄호로 묶으면 return문 생략 가능
         //현재의 status와 data 값을 풀어헤치고, status 값만 pending으로 바꿔줌.
         setUserInfo((currentUserInfo) => ({...currentUserInfo, status: 'pending'}));
@@ -37,8 +36,14 @@ const Search = ({setUserInfo}) => {
     }
     
     const onSetHistory = () => {
+        if (onCheckOverlap()) return;
         if (history.length < 3) setHistory([...history, user]);
         else setHistory([...history.splice(1, history.length - 1), user])
+    }
+
+    const onCheckOverlap = () => {
+        const result = history.filter((item) => item === user);
+        return result.length;
     }
 
     return (

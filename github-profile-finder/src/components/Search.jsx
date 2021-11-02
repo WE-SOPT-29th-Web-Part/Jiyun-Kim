@@ -1,54 +1,70 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import axios from 'axios';
+import History from './History';
+import { callUserData } from '../libs/githubApi.js'
+import { getLocalStorage } from '../libs/localStorage.js'
 
 const Search = ({setUserInfo}) => {
     const [user, setUser] = useState('');
+    const [history, setHistory] = useState(getLocalStorage('history'));
 
     const handleChange = (e) => {
         setUser(e.target.value);
     };
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
-
+        console.log(user);
         //괄호로 묶으면 return문 생략 가능
         //현재의 status와 data 값을 풀어헤치고, status 값만 pending으로 바꿔줌.
-        setUserInfo((currentUserInfo) => ({...currentUserInfo, status: "pending"}));
-        
-        try {
-            //서버에 있는 데이터를 받아오는 방법
-            //서버 통신이 필요하다. 서버 통신에는 받아오는데 시간이 걸린다 => 비동기다
-            //비동기 처리를 하기 위한 방법 => async await
-            //axios는 서버 통신을 도와주는 툴
-            const {data} = await axios.get(`https://api.github.com/users/${user}`);
-            setUserInfo((currentUserInfo) => ({
-                ...currentUserInfo,
-                data,   //key value가 같을 때 다음과 같이 : 안 해줘도 됨
-                status: "resolved",
-            }));
-            setUser('');
-        } catch(err) {
-            setUserInfo((currentUserInfo) => ({
-                ...currentUserInfo,
-                data: null,
-                status: "rejected",
-            }));
-            console.log(err);
-        }
-        //구조분해할당
+        setUserInfo((currentUserInfo) => ({...currentUserInfo, status: 'pending'}));
+        callUserData(user)
+        .then((response) => {
+            onSetUserInfo(response);
+            onSetHistory();
+        });
+
+        setUser('');
     };
 
+    const onSetUserInfo = (data) => {
+        const status = data ? 'resolved' : 'rejected';
+        setUserInfo((currentUserInfo) => ({
+            ...currentUserInfo,
+            data,   //key value가 같을 때 다음과 같이 : 안 해줘도 됨
+            status: status,
+        }));
+    }
+    
+    const onSetHistory = () => {
+        if (history.length < 3) setHistory([...history, user]);
+        else setHistory([...history.splice(1, history.length - 1), user])
+    }
+
     return (
-        <form onSubmit={handleSubmit}>
-            <Input 
-            value={user} 
-            type="text" 
-            placeholder="Github 프로필을 검색해보세요."
-            onChange={handleChange}/>
-        </form>
+        <SearchBarStyled>
+            <form onSubmit={handleSubmit}>
+                <Input 
+                value={user} 
+                type="text" 
+                placeholder="Github 프로필을 검색해보세요."
+                onChange={handleChange}/>
+            </form>
+            <History 
+                history={history}
+                setHistory={setHistory}
+                setUserInfo={setUserInfo}
+            />
+        </SearchBarStyled>
     );
 };
+
+const SearchBarStyled = styled.div`
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+`;
 
 const Input = styled.input`
     width: 320px;

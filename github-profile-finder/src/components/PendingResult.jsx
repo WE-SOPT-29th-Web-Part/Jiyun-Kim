@@ -13,5 +13,4 @@ const Root = styled.div`
     font-size: 1rem;
 `;
 
-
 export default PendingResult;

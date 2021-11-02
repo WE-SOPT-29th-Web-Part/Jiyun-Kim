@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import './App.css';
 import Header from './components/Header';
-import Result2 from './components/Result2';
+import Result from './components/Result';
 import Search from './components/Search';
 import styled from 'styled-components';
 
@@ -20,15 +20,10 @@ function App() {
       <Search
         setUserInfo={setUserInfo}
       ></Search>
-      <Result2
+      <Result
         userInfo={userInfo}
         setUserInfo={setUserInfo}
-      ></Result2>
-
-      {/* <Result
-        userInfo={userInfo}
-        setUserInfo={setUserInfo}
-      ></Result> */}
+      ></Result>
     </Root>
   );
 }

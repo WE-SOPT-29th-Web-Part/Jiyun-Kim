@@ -1,13 +1,18 @@
 import { qs, qsAll, createElem } from "../utils.js";
+import TagInput from "./tagInput.js";
 
 export default class Tag {
     constructor() {
-        this.$tagInput = qs('.tag__input');
         this.$target = qs('.tag__items');
         this.state = {};
+        this.init();
         this.setEvent();
     }
 
+    init() {
+        this.tagInput = new TagInput(this.onCheckExistTag.bind(this), this.addTag.bind(this));
+    }
+    
     render() {
         const result = createElem('span');
         result.className = 'tag__item';
@@ -16,21 +21,12 @@ export default class Tag {
     }
 
     setEvent() {
-        this.$tagInput.addEventListener('keyup', e => {
-            if (e.key !== 'Enter') return;
-            if (this.checkExistTag(e.target)) {
-                e.target.value = '';
-                return;
-            }
-            this.addTag(e.target);
-        });
-
         this.$target.addEventListener('click', e => {
             this.onClickDeleteTag(e.target);
         })
     }
-
-    checkExistTag(tag) {
+    
+    onCheckExistTag(tag) {
         const $tagItems = qsAll('.tag__item');
         for(let item of $tagItems) {
             if (tag.value === item.innerText) return true;

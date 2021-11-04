@@ -10,7 +10,6 @@ class Main {
     constructor() {
         this.$writeBtn = qs('.header__write');
         this.init();
-        this.setEvent();
     }
 
     init() {

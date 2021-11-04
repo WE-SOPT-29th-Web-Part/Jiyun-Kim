@@ -128,7 +128,6 @@ section {
 }
 
 .nav {
-  /* padding: 0 70px; */
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -345,7 +344,6 @@ section .post__card:hover {
   width: 100%;
   height: 100%;
   background-color: rgba(126, 126, 126, 0.541);
-  /* opacity: 70%; */
   visibility: hidden;
 }
 

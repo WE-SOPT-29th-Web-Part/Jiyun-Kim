@@ -1,4 +1,4 @@
-import { createElem, qs } from "../utils.js";
+import { qs } from "../utils.js";
 
 export default class PostCardModal {
     constructor() {

@@ -18,12 +18,6 @@ class Main {
         this.postCardModal = new PostCardModal();
         this.darkModeBtn = new DarkModeButton();
     }
-
-    setEvent() {
-        this.$writeBtn.addEventListener('click', () => {
-            location.href="write.html";
-        })
-    }
 }
 
 new Main();

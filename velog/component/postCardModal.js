@@ -3,18 +3,17 @@ import { createElem, qs } from "../utils.js";
 export default class PostCardModal {
     constructor() {
         this.$main = qs('main');
-        this.$target = createElem('div');
-        this.$target.className = 'post__modal';
-        document.body.appendChild(this.$target);
+        this.$target = qs('.post__modal');
+        this.$delete_btn = qs('.post__modal-btn');
         this.setEvent();
     }
 
     render() {
         this.$target.innerHTML = 
         `
-            ${this.$postCard.outerHTML} 
-            <button class="post__modal-btn">X</button>
+            ${this.$postCard.outerHTML}
         `;
+        this.$target.appendChild(this.$delete_btn);
     }
 
     setEvent() {
@@ -23,10 +22,8 @@ export default class PostCardModal {
             if (this.$postCard) this.onClickCard();
         });
 
-        this.$target.addEventListener('click', e => {
-            if (e.target.classList.contains('post__modal-btn')) {
-                this.onClickDeleteBtn();
-            }
+        this.$delete_btn.addEventListener('click', e => {
+            this.onClickDeleteBtn();
         });
     }
 

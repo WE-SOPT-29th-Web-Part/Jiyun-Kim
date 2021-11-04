@@ -22,7 +22,7 @@ export default class Tag {
 
     setEvent() {
         this.$target.addEventListener('click', e => {
-            this.onClickDeleteTag(e.target);
+            if(e.target.closest('.tag__item')) this.onClickDeleteTag(e.target);
         })
     }
     

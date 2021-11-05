@@ -47,7 +47,7 @@ const LiStyled = styled.li`
     }
 
     & > button {
-        border: 0;
+    border: 0;
     background-color: rgb(36, 39, 43);
     color: rgb(229, 230, 231);
     cursor: pointer;

@@ -12,6 +12,7 @@ const RejectedResult = () => {
 const Root = styled.div`
     color: white;
     font-size: 2rem;
+    margin-top: 20px;
 `;
 
 export default RejectedResult;

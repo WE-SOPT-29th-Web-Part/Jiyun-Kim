@@ -5,16 +5,16 @@ const ResultFooter = ({followers, following, publicRepos}) => {
     return (
         <Ul>
             <li>
-                <strong>Followers</strong>
-                {followers}
+                <span>{followers}</span>
+                followers
             </li>
             <li>
-                <strong>Following</strong>
-                {following}
-                </li>
+                <span>{following}</span>
+                following
+            </li>
             <li>
-                <strong>Repos</strong>
-                {publicRepos}
+                <span>{publicRepos}</span>
+                Repos
             </li>
         </Ul>
     );
@@ -23,33 +23,21 @@ const ResultFooter = ({followers, following, publicRepos}) => {
 const Ul = styled.ul`
   display: flex;
   width: 100%;
-  margin-top: 25px;
+  margin-top: 10px;
+  font-size: 0.725rem;
 
-  & > li {
-      width: 130px;
+    & > li {
       height: 59px;
-      background-color: rgb(36, 39, 43);
       display: flex;
-      flex-direction: column;
       align-items: center;
       justify-content: center;
       line-height: 1.5;
-      border-right: 5px solid rgb(44, 48, 53);
-      border-left: 5px solid rgb(44, 48, 53);
+      margin-right: 10px;
 
-      & > strong {
+      & > span {
           font-weight: bold;
+          margin-right: 2px;
       }
-
-        &:nth-child(1) {
-            border-left: none;
-            border-bottom-left-radius: 20px;
-        }
-
-        &:nth-child(3) {
-            border-right: none; 
-            border-bottom-right-radius: 20px;
-        }
     }
 `;
 

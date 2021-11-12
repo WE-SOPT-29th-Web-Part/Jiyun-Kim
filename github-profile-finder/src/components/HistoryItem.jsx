@@ -36,11 +36,12 @@ const LiStyled = styled.li`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 304px;
     height: 34px;
     padding: 8px 16px;
-    background-color: rgb(36, 39, 43);
-    color: rgb(229, 230, 231);
+    background-color: rgb(229, 230, 231);
+    color: rgb(36, 39, 43);
+    border-radius: 30px;
+    margin-right: 5px;
     
     & > span {
         cursor: pointer;
@@ -48,15 +49,11 @@ const LiStyled = styled.li`
 
     & > button {
         border: 0;
-    background-color: rgb(36, 39, 43);
-    color: rgb(229, 230, 231);
+    background-color: rgb(229, 230, 231);
+    color: rgb(36, 39, 43);
     cursor: pointer;
     width: 15px;
     height: 15px;
-    }
-
-    &:last-child { 
-        border-radius: 0 0 20px 20px
     }
 `;
 

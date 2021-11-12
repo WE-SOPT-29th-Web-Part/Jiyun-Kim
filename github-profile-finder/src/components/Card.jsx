@@ -9,7 +9,7 @@ const Card = ({userInfo, setUserInfo}) => {
         
         <Root>
             <a href={html_url} target="_blank">
-                <img src="https://play-lh.googleusercontent.com/PCpXdqvUWfCW1mXhH1Y_98yBpgsWxuTSTofy3NGMo9yBTATDyzVkqU580bfSln50bFU" />
+                GitHub
             </a>
             <button onClick={() => {setUserInfo({})}}>닫기</button>
             <Profile
@@ -51,8 +51,6 @@ const Root = styled.article`
     }
   }
 
-  /* styled component의 장점 => 중첩 스타일링이 가능 */
-  /* & > button {} */
   & > button {
         position: absolute;
         top: 15px;
@@ -67,26 +65,19 @@ const Root = styled.article`
         cursor: pointer;
     }
 
-  & > a {
+    & > a {
       position: absolute;
       top: 15px;
       right: 70px;
-      /* border: 1px solid gold; */
       border-radius: 50%;
-      /* padding: 8px; */
       text-decoration: none;
+      color: white;
 
       & > img {
           border-radius: 50%;
-          width: 30px;
-          height: 30px;
+          /* width: 50px;
+          height: 50px; */
       }
-
-      /* &:hover {
-          background-color: gold;
-          color: rgb(44, 48, 53);
-      } */
-
     }
 `;
 

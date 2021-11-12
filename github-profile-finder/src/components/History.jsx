@@ -5,9 +5,6 @@ import { setLocalStorage } from '../libs/localStorage.js'
 
 
 const History = ({history, setHistory, setUserInfo}) => {
-    
-
-    
     useEffect(() => {
         setLocalStorage({key: 'history', value: history})
     }, [history]);
@@ -32,17 +29,6 @@ const RootStyled = styled.ul`
     display: flex;
     flex-direction: row-reverse;
     margin-top: 10px;
-
-    /* @keyframes dropDown {
-        0% {
-            transform: translateY(-10px);
-            opacity: 0;
-        }
-        100% {
-            transform: translateY(0px);
-            opacity: 1;
-        }
-    } */
 `;
 
 export default History;

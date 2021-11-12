@@ -38,8 +38,8 @@ const StyledHeader = styled.header`
       color: rgb(27, 29, 33);
       margin-right: 5px;
       & > img {
-          width: 30px;
-          height: 30px;
+        width: 30px;
+        height: 30px;
       }
     }
 `;

@@ -35,8 +35,8 @@ const Ul = styled.ul`
       margin-right: 10px;
 
       & > span {
-          font-weight: bold;
-          margin-right: 2px;
+        font-weight: bold;
+        margin-right: 2px;
       }
     }
 `;

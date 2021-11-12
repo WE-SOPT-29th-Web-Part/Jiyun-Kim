@@ -49,11 +49,11 @@ const LiStyled = styled.li`
 
     & > button {
         border: 0;
-    background-color: rgb(229, 230, 231);
-    color: rgb(36, 39, 43);
-    cursor: pointer;
-    width: 15px;
-    height: 15px;
+        background-color: rgb(229, 230, 231);
+        color: rgb(36, 39, 43);
+        cursor: pointer;
+        width: 15px;
+        height: 15px;
     }
 `;
 

@@ -19,7 +19,6 @@ const Profile = styled.article`
   display: flex;
   align-items: center;
   padding-top: 40px;
-  
 `;
 
 const StyledInfo = styled.div`
@@ -35,7 +34,7 @@ const StyledInfo = styled.div`
     }
 
     & > div {
-        font-size: 0.25rem;
+      font-size: 0.25rem;
       margin-top: 10px;
     }
 

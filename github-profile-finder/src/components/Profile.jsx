@@ -42,6 +42,4 @@ const Profile = styled.article`
   }
 `;
 
-
 export default ResultFooter;
-

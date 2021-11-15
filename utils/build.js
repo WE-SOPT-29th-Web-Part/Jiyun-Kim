@@ -14,7 +14,7 @@ const BUILD_TARGETS = [
     type: "static",
   },
   {
-    name: "d-day_calc",
+    name: "d-day-calc",
     type: "react",
   },
   {

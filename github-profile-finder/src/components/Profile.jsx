@@ -1,45 +1,47 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const ResultFooter = ({avatarUrl, name, login, bio}) => {
+const ResultFooter = ({name, login, bio, blog, company}) => {
     return (
         <Profile>
-            <img src={avatarUrl} alt="avatar" />
-            <h3>{name}</h3>
-            <h4>{login}</h4>
-            <p>{bio}</p>
+            <StyledInfo>
+                <h3>{name}</h3>
+                <h4>{login}</h4>
+                <div>{company}</div>
+                <div>{blog}</div>
+                <p>{bio}</p>
+            </StyledInfo>
         </Profile>
     );
 };
 
 const Profile = styled.article`
   display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
-  
-  & > img {
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    margin-top: 30px;
-  }
+  padding-top: 40px;
+`;
 
-  & > h3 {
+const StyledInfo = styled.div`
+    & > h3 {
       font-size: 24px;
       margin-top: 24px;
       font-weight: bold;
-  }
+    }
 
-  & > h4 {
+    & > h4 {
       font-size: 14px;
       margin-top: 5px;
-  }
+    }
 
-  & > p {
-      padding: 20px 45px;
+    & > div {
+      font-size: 0.25rem;
+      margin-top: 10px;
+    }
+
+    & > p {
+      padding: 10px 0;
       text-align: center;
-  }
+    }
 `;
 
 export default ResultFooter;

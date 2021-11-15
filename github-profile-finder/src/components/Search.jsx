@@ -67,19 +67,18 @@ const Search = ({setUserInfo}) => {
 const SearchBarStyled = styled.div`
     position: relative;
     display: flex;
-    flex-direction: column;
-    align-items: center;
 `;
 
 const Input = styled.input`
-    width: 320px;
-    height: 57px;
+    width: 220px;
+    height: 40px;
     padding: 16px;
-    color: rgb(229, 230, 231);
-    background-color: rgb(36, 39, 43);
+    margin-right: 15px;
     outline: none;
-    border: 8px solid rgba(105, 105, 105, 0.5);
-    border-radius: 20px;
+    color: rgb(251, 251, 253);
+    background-color: rgb(27, 29, 33);
+    border: 0;
+    border-bottom: 2px solid rgb(251, 251, 253);
 `;
 
 export default Search;

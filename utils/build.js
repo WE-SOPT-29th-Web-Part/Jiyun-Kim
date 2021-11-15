@@ -14,10 +14,6 @@ const BUILD_TARGETS = [
     type: "static",
   },
   {
-    name: "d-day-calc",
-    type: "react",
-  },
-  {
     name: "github-profile-finder",
     type: "react",
   },

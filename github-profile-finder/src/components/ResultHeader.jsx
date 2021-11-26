@@ -1,7 +1,11 @@
 import React from "react";
 import styled from "styled-components";
 
-const ResultHeader = ({ htmlUrl, setUserInfo }) => {
+const ResultHeader = ({ htmlUrl, onClose }) => {
+  const handleCloseCard = () => {
+    onClose();
+  };
+
   return (
     <StyledHeader>
       <a href={htmlUrl} target='_blank' rel='noreferrer'>
@@ -10,13 +14,7 @@ const ResultHeader = ({ htmlUrl, setUserInfo }) => {
           alt=''
         />
       </a>
-      <button
-        onClick={() => {
-          setUserInfo({});
-        }}
-      >
-        x
-      </button>
+      <button onClick={handleCloseCard}>x</button>
     </StyledHeader>
   );
 };

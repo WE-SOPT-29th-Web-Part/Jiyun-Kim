@@ -4,9 +4,11 @@ import History from "./History";
 import { callUserData } from "../libs/githubApi.js";
 import { getLocalStorage } from "../libs/localStorage.js";
 
-const Search = ({ setUserInfo }) => {
+const Search = ({ handleStatus }) => {
   const [user, setUser] = useState("");
-  const [history, setHistory] = useState(getLocalStorage("history"));
+  const [history, setHistory] = useState(
+    getLocalStorage("history") ? getLocalStorage("history") : []
+  );
 
   const handleChange = (e) => {
     setUser(e.target.value);
@@ -16,10 +18,7 @@ const Search = ({ setUserInfo }) => {
     e.preventDefault();
     //괄호로 묶으면 return문 생략 가능
     //현재의 status와 data 값을 풀어헤치고, status 값만 pending으로 바꿔줌.
-    setUserInfo((currentUserInfo) => ({
-      ...currentUserInfo,
-      status: "pending",
-    }));
+    handleStatus({ status: "pending" });
     callUserData(user).then((response) => {
       onSetUserInfo(response);
       onSetHistory();
@@ -30,11 +29,7 @@ const Search = ({ setUserInfo }) => {
 
   const onSetUserInfo = (data) => {
     const status = data ? "resolved" : "rejected";
-    setUserInfo((currentUserInfo) => ({
-      ...currentUserInfo,
-      data, //key value가 같을 때 다음과 같이 : 안 해줘도 됨
-      status: status,
-    }));
+    handleStatus({ data, status });
   };
 
   const onSetHistory = () => {
@@ -49,7 +44,7 @@ const Search = ({ setUserInfo }) => {
   };
 
   return (
-    <SearchBarStyled>
+    <StyledSearchBar>
       <form onSubmit={handleSubmit}>
         <Input
           value={user}
@@ -61,13 +56,13 @@ const Search = ({ setUserInfo }) => {
       <History
         history={history}
         setHistory={setHistory}
-        setUserInfo={setUserInfo}
+        handleStatus={handleStatus}
       />
-    </SearchBarStyled>
+    </StyledSearchBar>
   );
 };
 
-const SearchBarStyled = styled.div`
+const StyledSearchBar = styled.div`
   position: relative;
   display: flex;
 `;

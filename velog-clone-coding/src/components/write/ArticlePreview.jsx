@@ -1,20 +1,22 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styled, {css} from 'styled-components';
-import { client } from '../../libs/api.js';
+import { client, imageClient } from '../../libs/api.js';
+import { useNavigate } from 'react-router';
 
-const ArticlePreview = ({articleData, setArticleData, preview, setPreview}) => {
+const ArticlePreview = ({editData, articleData, setArticleData, onDataChange, preview, setPreview}) => {
+    const navigate = useNavigate();
     const [word, setWord] = useState(0);
     const createArticle = async () => {
-        const {data} = await client.get('/article');
-        const id = data.length + 1;
-        const now = new Date();
-        const date = `${now.getFullYear()}년 ${now.getMonth() + 1}월 ${now.getDate()}일`;
+        if(editData) {
+            await client.patch(`/article/${editData.id}`, articleData);
+            navigate(`/article/${editData.id}`, {state: articleData});
+            return;
+        }
         await client.post('/article', {
             ...articleData, 
-            id, 
-            date,
         });
+        navigate("/");
     }
 
     const handleCancel = () => {
@@ -37,10 +39,21 @@ const ArticlePreview = ({articleData, setArticleData, preview, setPreview}) => {
         }));
     }
 
+    const handleImageChange = async (e) => {
+        const formData = new FormData();
+        const imageFile = e.target.files[0];
+        formData.append("file", imageFile);
+        //formData 안의 file이라는 키에 imageFile을 추가하겠다.
+        const imageResponse = await imageClient.post("", formData);
+        const imageUrl = imageResponse.url;
+        onDataChange({thumbnail: imageUrl});
+    }
+
     return (
         <StyledPreview preview={preview}>
             <StyledLeftPage>
                 <h3>포스트 미리보기</h3>
+                <input type="file" onChange={handleImageChange}/>
                 <button className="img__button">썸네일 업로드</button>
                 <div className="article__title">{articleData.title}</div>
                 <textarea placeholder="당신의 포스트를 짧게 소개해보세요." onChange={handleChange}/>

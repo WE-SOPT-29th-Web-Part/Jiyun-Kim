@@ -5,31 +5,43 @@ import ArticleTags from '../components/write/ArticleTags';
 import ArticleTitle from '../components/write/ArticleTitle';
 import styled from 'styled-components';
 import ArticlePreview from '../components/write/ArticlePreview';
+import { useLocation } from 'react-router';
 
 const Write = () => {
-    const [articleData, setArticleData] = useState({
-        id: '',
+    const location = useLocation();
+    const article = location.state;
+    const [articleData, setArticleData] = useState(
+        article ?? {
+        // title: article?.title ?? '',
         title: '',
         body: '',
         summary: '',
         series: '',
         tags: [],
         thumbnail: '',
-        date: '',
     });
     const [preview, setPreview] = useState(false);
+
+    const handleDataChange = ({title, tags, image}) => {
+        setArticleData({
+            ...articleData, 
+            title,
+            tags: [...tags],
+            image,
+        });
+    }
     return (
         <StyledWritePage>
             <StyledArticle>
-                <ArticleTitle setArticleData={setArticleData}/>
+                <ArticleTitle onDataChange={handleDataChange} title={articleData.title}/>
                 <StyledCenterLine>
                     <div></div>
                 </StyledCenterLine>
-                <ArticleTags tags={articleData.tags} articleData={articleData} setArticleData={setArticleData}/>
-                <ArticleBody setArticleData={setArticleData}/>
+                <ArticleTags tags={articleData.tags} articleData={articleData} onDataChange={handleDataChange}/>
+                <ArticleBody body={articleData.body} setArticleData={setArticleData}/>
                 <ArticleFooter setPreview={setPreview}/>
             </StyledArticle>
-            <ArticlePreview articleData={articleData} setArticleData={setArticleData} preview={preview} setPreview={setPreview}/>
+            <ArticlePreview editData={article} articleData={articleData} setArticleData={setArticleData} onDataChange={handleDataChange} preview={preview} setPreview={setPreview}/>
         </StyledWritePage>
     );
 };

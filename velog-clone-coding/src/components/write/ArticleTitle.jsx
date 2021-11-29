@@ -1,15 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const ArticleTitle = ({setArticleData}) => {
+const ArticleTitle = ({onDataChange, title}) => {
     const handleChange = (e) => {
-        setArticleData(articleData => ({
-            ...articleData, 
-            title: e.target.value
-        }));
+        onDataChange(e.target.value);
     }
     return (
-        <StyledTextarea placeholder="제목을 입력하세요." onChange={handleChange} rows="1"></StyledTextarea>
+        <StyledTextarea placeholder="제목을 입력하세요." onChange={handleChange} rows="1">{title}</StyledTextarea>
     );
 };
 

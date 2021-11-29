@@ -1,13 +1,19 @@
 import React from "react";
-import styled, { css } from "styled-components";
+import { Link } from "react-router-dom";
+import styled from "styled-components";
+import ImgWrapper from "../common/ImgWrapper";
 
 const ArticleCard = ({ article }) => {
-  const { id, title, body, summary, series, tags, thumbnail, date } = article;
+  const { title, summary, tags, thumbnail, date } = article;
   return (
+    //history -> aㅋ=태그를 형성하지 않는다
+    //lint는 a태그 만듬 -> 검색엔진에 도움됨
     <StyledArticleCard>
-      <StyledWrapper thumbnail={thumbnail}>
+      <Link to={`article/${article}`} state={article}>
+      <ImgWrapper ratio="56%">
         <img src={thumbnail} alt='articleImg' />
-      </StyledWrapper>
+      </ImgWrapper>
+      </Link>
       <h3>{title}</h3>
       <h4>{summary}</h4>
       <StyledTags>
@@ -68,22 +74,6 @@ const StyledTags = styled.div`
   }
 `;
 
-const StyledWrapper = styled.div`
-  height: 300px;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  overflow: hidden;
-  ${({ thumbnail }) =>
-    thumbnail === "" &&
-    css`
-      display: none;
-      `};
-      
-    & > img {
-      width: 100%;
-    height: auto;
-  }
-`;
+
 
 export default ArticleCard;

@@ -1,93 +1,115 @@
-import React from 'react';
-import styled from 'styled-components';
-import Profile from './Profile';
-import ResultFooter from './ResultFooter';
+import React, { useEffect, useRef } from "react";
+import styled from "styled-components";
+import { gsap } from "gsap";
+import Profile from "./Profile";
+import ResultFooter from "./ResultFooter";
+import ResultHeader from "./ResultHeader";
 
-const Card = ({userInfo, setUserInfo}) => {
-    const {avatar_url, name, login, bio, html_url, followers, following, public_repos} = userInfo.data;
-    return (
-        
-        <Root>
-            <a href={html_url} target="_blank">
-                <img src="https://play-lh.googleusercontent.com/PCpXdqvUWfCW1mXhH1Y_98yBpgsWxuTSTofy3NGMo9yBTATDyzVkqU580bfSln50bFU" />
-            </a>
-            <button onClick={() => {setUserInfo({})}}>닫기</button>
-            <Profile
-                avatarUrl={avatar_url}
-                name={name}
-                login={login}
-                bio={bio}
-            ></Profile>
-            <ResultFooter
-                followers={followers}
-                following={following}
-                publicRepos={public_repos}
-            ></ResultFooter>
-        </Root>
+const Card = ({ userInfo, onClose }) => {
+  const {
+    avatar_url,
+    name,
+    login,
+    bio,
+    blog,
+    company,
+    html_url,
+    followers,
+    following,
+    public_repos,
+  } = userInfo.data;
+
+  const cardRef = useRef(null);
+
+  useEffect(() => {
+    gsap.fromTo(
+      cardRef.current,
+      {
+        opacity: 0,
+        y: -20,
+      },
+      {
+        y: 0,
+        opacity: 1,
+        duration: 0.5,
+      }
     );
+  }, []);
+  const handleClose = () => {
+    gsap.fromTo(
+      cardRef.current,
+      {
+        opacity: 1,
+      },
+      {
+        y: 20,
+        opacity: 0,
+        duration: 0.5,
+      }
+    );
+    setTimeout(() => {
+      onClose();
+    }, 500);
+  };
+
+  return (
+    <Root ref={cardRef}>
+      <ResultHeader htmlUrl={html_url} onClose={handleClose} />
+      <img src={avatar_url} alt='avatar' />
+      <StyledProfile>
+        <Profile
+          avatarUrl={avatar_url}
+          name={name}
+          login={login}
+          bio={bio}
+          blog={blog}
+          company={company}
+        ></Profile>
+        <ResultFooter
+          followers={followers}
+          following={following}
+          publicRepos={public_repos}
+        ></ResultFooter>
+      </StyledProfile>
+    </Root>
+  );
 };
 
 const Root = styled.article`
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
   margin-top: 16px;
-  color: white;
-  background-color: rgb(44, 48, 53);
-  width: 390px;
-  border-radius: 20px;
+  color: rgb(45, 47, 49);
+  background-color: rgb(251, 251, 253);
+  width: 32%;
+  padding: 20px;
+  border-radius: 30px;
   position: relative;
-  animation: slideDown 400ms ease-in 0s 1 normal forwards;
+  /* animation: slideDown 400ms ease-in 0s 1 normal forwards; */
 
   @keyframes slideDown {
     0% {
-        transform: translateY(-20px);
-        opacity: 0;
+      transform: translateY(-20px);
+      opacity: 0;
     }
     100% {
-        transform: translateY(0px);
-        opacity: 1;
+      transform: translateY(0px);
+      opacity: 1;
     }
   }
 
-  /* styled component의 장점 => 중첩 스타일링이 가능 */
-  /* & > button {} */
-  & > button {
-        position: absolute;
-        top: 15px;
-        right: 15px;
-        width: 50px;
-        height: 30px;
-        background-color: rgb(36, 39, 43);
-        color: white;
-        outline: none;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-    }
+  & > img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    margin-right: 30px;
+  }
+`;
 
-  & > a {
-      position: absolute;
-      top: 15px;
-      right: 70px;
-      /* border: 1px solid gold; */
-      border-radius: 50%;
-      /* padding: 8px; */
-      text-decoration: none;
-
-      & > img {
-          border-radius: 50%;
-          width: 30px;
-          height: 30px;
-      }
-
-      /* &:hover {
-          background-color: gold;
-          color: rgb(44, 48, 53);
-      } */
-
-    }
+const StyledProfile = styled.div`
+  display: flex;
+  flex-direction: column;
 `;
 
 export default Card;

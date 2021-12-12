@@ -14,16 +14,16 @@ const Header = () => {
                 sopt.log
             </StyledLeft>
             <StyledRight>
-                <button className="search">
+                <StyledSearchBtn>
                     <SearchIcon />
-                </button>
+                </StyledSearchBtn>
                 <Link to="/write">
-                    <button className="newWrite"><b>새 글 쓰기</b></button>
+                    <StyledNewWrite>새 글 쓰기</StyledNewWrite>
                 </Link>
-                <div className="option">
+                <StyledOptions>
                     <img src={SoptImg} alt="profile"/>
                     <ArrowDropDown />
-                </div>
+                </StyledOptions>
             </StyledRight>
         </StyledHeader>
     );
@@ -56,63 +56,65 @@ const StyledLeft = styled.div`
 const StyledRight = styled.div`
     display: flex;
     align-items: center;
-    & > .search {
-        margin-right: 12px;
-        width: 37px;
-        height: 37px;
-        border: 0;
-        background-color: white;
-        & > svg {
-            fill: rgb(33, 37, 41);
-        }
-    }
-    & > .search:hover {
-        background-color: rgba(0, 0, 0, 0.043);
-        border-radius: 50px;
-    }
+`;
 
-    & .newWrite {
-        border: solid 1px rgb(52, 58, 64);
-        border-radius: 30px;
-        font-size: 1rem;
-        background-color: white;
-        color: rgb(52, 58, 64);
-        width: 110px;
-        height: 32px;
-        margin: 0;
-        padding: 1px 16px;
-        margin-right: 20px;
-        text-decoration: none;
-        text-align: center;
-        line-height: 30px;
-    }
-    & .newWrite:hover {
+const StyledNewWrite = styled.button`
+    border: solid 1px rgb(52, 58, 64);
+    border-radius: 30px;
+    font-size: 1rem;
+    font-weight: bold;
+    background-color: white;
+    color: rgb(52, 58, 64);
+    width: 110px;
+    height: 32px;
+    margin: 0;
+    padding: 1px 16px;
+    margin-right: 20px;
+    text-decoration: none;
+    text-align: center;
+    line-height: 30px;
+    &:hover {
         background: rgb(52, 58, 64);
         color: white;
         cursor: pointer;
     }
+`;
 
-    & > .option {
-        display: flex;
-        align-items: center;
-        
-        & > img {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            box-shadow: 0px 0px 8px rgb(0, 0, 0, 9%);
-        }
-        & > img:hover {
-            box-shadow: 0px 0px 12px rgb(0, 0, 0, 10%);
-        }
+const StyledSearchBtn = styled.button`
+    margin-right: 12px;
+    width: 37px;
+    height: 37px;
+    border: 0;
+    background-color: white;
+    & > svg {
+        fill: rgb(33, 37, 41);
+    }
+    &:hover {
+    background-color: rgba(0, 0, 0, 0.043);
+    border-radius: 50px;
+    }
+`;
 
-        & > svg {
-            margin-left: 4px;
-            fill: rgb(134, 142, 150);
-        }
-        & > svg:hover {
-            fill: rgb(33, 37, 41);
-        }
+const StyledOptions = styled.div`
+    display: flex;
+    align-items: center;
+    
+    & > img {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        box-shadow: 0px 0px 8px rgb(0, 0, 0, 9%);
+    }
+    & > img:hover {
+        box-shadow: 0px 0px 12px rgb(0, 0, 0, 10%);
+    }
+
+    & > svg {
+        margin-left: 4px;
+        fill: rgb(134, 142, 150);
+    }
+    & > svg:hover {
+        fill: rgb(33, 37, 41);
     }
 `;
 

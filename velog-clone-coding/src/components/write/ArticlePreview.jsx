@@ -8,7 +8,6 @@ import PreviewLeftView from "./PreviewLeftView.jsx";
 const ArticlePreview = ({
   editData,
   articleData,
-  setArticleData,
   onDataChange,
   preview,
   setPreview,
@@ -32,11 +31,7 @@ const ArticlePreview = ({
 
   return (
     <StyledPreview preview={preview}>
-      <PreviewLeftView
-        articleData={articleData}
-        setArticleData={setArticleData}
-        onDataChange={onDataChange}
-      />
+      <PreviewLeftView articleData={articleData} onDataChange={onDataChange} />
       <StyledCenterBar></StyledCenterBar>
       <StyledRightPage>
         <StyledCancelBtn onClick={handleCancel}>취소</StyledCancelBtn>

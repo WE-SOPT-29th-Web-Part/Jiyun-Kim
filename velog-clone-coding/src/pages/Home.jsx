@@ -1,11 +1,11 @@
 import React from "react";
-import { Route, Routes } from "react-router";
 import Header from "../components/common/Header";
 import ArticlesContainer from "../components/home/ArticlesContainer";
 import HomeNav from "../components/home/HomeNav";
 import Profile from "../components/home/Profile";
 import SeriesCategory from "./SeriesCategory";
 import styled from "styled-components";
+import { Route, Routes } from "react-router";
 
 const Home = ({ match }) => {
   return (

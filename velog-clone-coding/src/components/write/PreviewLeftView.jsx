@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import styled, { css } from "styled-components";
+import { imageClient } from "../../libs/api";
+import ImgWrapper from "../common/ImgWrapper";
 
-const PreviewLeftView = ({ articleData, setArticleData }) => {
+const PreviewLeftView = ({ articleData, onDataChange }) => {
   const [previewLength, setPreviewLength] = useState(0);
   const handleChange = (e) => {
     if (e.target.value.length > 150) {
@@ -9,20 +11,33 @@ const PreviewLeftView = ({ articleData, setArticleData }) => {
       return;
     }
     setPreviewLength(e.target.value.length);
-    setArticleData((articleData) => ({
-      ...articleData,
+    onDataChange({
       summary: e.target.value,
-    }));
+    });
+  };
+
+  const handleImageChange = async (e) => {
+    const formData = new FormData();
+    const imageFile = e.target.files[0];
+    formData.append("file", imageFile);
+    //formData 안의 file이라는 키에 imageFile을 추가하겠다.
+    const { data } = await imageClient.post("", formData);
+    onDataChange({ thumbnail: data.url });
   };
 
   return (
     <StyledLeftView>
       <h3>포스트 미리보기</h3>
-      <button>썸네일 업로드</button>
+      <input type='file' id='file' onChange={handleImageChange} />
+      <label for='file'>썸네일 업로드</label>
+      <ImgWrapper height='193px' top='15px'>
+        <img src={articleData.thumbnail} alt='thumbnail' />
+      </ImgWrapper>
       <p>{articleData.title}</p>
       <textarea
         placeholder='당신의 포스트를 짧게 소개해보세요.'
         onChange={handleChange}
+        value={articleData.summary}
       />
       <StyledSummaryLength word={previewLength}>
         <span>{previewLength}</span>
@@ -42,7 +57,10 @@ const StyledLeftView = styled.div`
     color: rgb(52, 58, 64);
     margin-bottom: 8px;
   }
-  & > button {
+  & > input {
+    display: none;
+  }
+  & > label {
     width: 167px;
     height: 32px;
     margin-top: 16px;
@@ -54,7 +72,7 @@ const StyledLeftView = styled.div`
     color: rgb(32, 201, 151);
     background-color: white;
   }
-  & > .img__button:hover {
+  & > label:hover {
     background-color: rgb(248, 249, 250);
     cursor: pointer;
   }

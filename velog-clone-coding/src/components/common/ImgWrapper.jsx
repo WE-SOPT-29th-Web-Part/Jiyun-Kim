@@ -1,33 +1,33 @@
-import React from 'react';
-import styled, {css} from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 
-const ImgWrapper = ({ratio, children}) => {
-    return (
-        <StyledImageWrapper ratio={ratio}>
-            {children}
-        </StyledImageWrapper>
-    );
+const ImgWrapper = ({ ratio, top, height, children }) => {
+  return (
+    <StyledImageWrapper ratio={ratio} top={top} height={height}>
+      {children}
+    </StyledImageWrapper>
+  );
 };
 
 const StyledImageWrapper = styled.div`
-  padding-top: ${({ratio}) => ratio};
+  /* padding-top: ${({ ratio }) => ratio}; */
+  margin-top: ${({ top }) => top};
+  margin-bottom: 10px;
   position: relative;
-
-  /* height: 300px;
-  width: 100%;
   display: flex;
+  height: ${({ height }) => height};
+  width: 100%;
   align-items: center;
-  overflow: hidden; */
-  /* ${({ thumbnail }) =>
-    thumbnail === "" &&
-    css`
-      display: none;
-      `};
-      
-    & > img {
-      width: 100%;
+  overflow: hidden;
+
+  & > img {
+    width: 100%;
     height: auto;
-  } */
+    /* position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%; */
+  }
 `;
 
 export default ImgWrapper;

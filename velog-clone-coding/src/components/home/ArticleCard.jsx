@@ -9,12 +9,14 @@ const ArticleCard = ({ article }) => {
     //history -> aㅋ=태그를 형성하지 않는다
     //lint는 a태그 만듬 -> 검색엔진에 도움됨
     <StyledArticleCard>
-      <Link to={`article/${article}`} state={article}>
-      <ImgWrapper ratio="56%">
-        <img src={thumbnail} alt='articleImg' />
-      </ImgWrapper>
+      <Link to={`article/${article.id}`} state={article}>
+        {thumbnail && (
+          <ImgWrapper ratio='56%' top='0' height='402px'>
+            <img src={thumbnail} alt='thumbnail' />
+          </ImgWrapper>
+        )}
+        <h3>{title}</h3>
       </Link>
-      <h3>{title}</h3>
       <h4>{summary}</h4>
       <StyledTags>
         {tags.map((tag) => (
@@ -35,10 +37,14 @@ const StyledArticleCard = styled.section`
     padding-top: 0;
   }
 
-  & > h3 {
-    font-size: 1.5rem;
-    color: rgb(33, 37, 41);
-    margin: 0;
+  & > a {
+    text-decoration: none;
+    width: 100%;
+    h3 {
+      font-size: 1.5rem;
+      color: rgb(33, 37, 41);
+      margin: 0;
+    }
   }
   & > h4 {
     margin-top: 8px;
@@ -55,7 +61,7 @@ const StyledArticleCard = styled.section`
   }
 `;
 
-const StyledTags = styled.div`
+export const StyledTags = styled.div`
   display: flex;
   flex-wrap: wrap;
   & > span {
@@ -73,7 +79,5 @@ const StyledTags = styled.div`
     cursor: pointer;
   }
 `;
-
-
 
 export default ArticleCard;

@@ -3,9 +3,9 @@ import { useNavigate } from "react-router";
 import styled from "styled-components";
 import { ReactComponent as BackArrow } from "../../assets/icons/keyboard_backspace.svg";
 
-const ArticleFooter = ({ setPreview }) => {
+const ArticleFooter = ({ onPreviewFlagChange }) => {
   const handlePost = async () => {
-    setPreview(true);
+    onPreviewFlagChange(true);
   };
   const navigate = useNavigate();
 

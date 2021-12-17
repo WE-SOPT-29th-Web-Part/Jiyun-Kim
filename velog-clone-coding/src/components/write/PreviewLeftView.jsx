@@ -6,10 +6,7 @@ import ImgWrapper from "../common/ImgWrapper";
 const PreviewLeftView = ({ articleData, onDataChange }) => {
   const [previewLength, setPreviewLength] = useState(0);
   const handleChange = (e) => {
-    if (e.target.value.length > 150) {
-      e.target.value = articleData.summary;
-      return;
-    }
+    if (checkSummaryLength(e.target)) return;
     setPreviewLength(e.target.value.length);
     onDataChange({
       summary: e.target.value,
@@ -25,14 +22,24 @@ const PreviewLeftView = ({ articleData, onDataChange }) => {
     onDataChange({ thumbnail: data.url });
   };
 
+  const checkSummaryLength = (summary) => {
+    if (summary.value.length > 150) {
+      summary.value = articleData.summary;
+      return true;
+    }
+    return false;
+  };
+
   return (
     <StyledLeftView>
       <h3>포스트 미리보기</h3>
       <input type='file' id='file' onChange={handleImageChange} />
       <label for='file'>썸네일 업로드</label>
-      <ImgWrapper height='193px' top='15px'>
-        <img src={articleData.thumbnail} alt='thumbnail' />
-      </ImgWrapper>
+      {articleData.thumbnail && (
+        <ImgWrapper height='193px' top='15px'>
+          <img src={articleData.thumbnail} alt='thumbnail' />
+        </ImgWrapper>
+      )}
       <p>{articleData.title}</p>
       <textarea
         placeholder='당신의 포스트를 짧게 소개해보세요.'

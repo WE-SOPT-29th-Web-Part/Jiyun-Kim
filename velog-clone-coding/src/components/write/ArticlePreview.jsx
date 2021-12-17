@@ -1,32 +1,21 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styled, { css } from "styled-components";
-import { client } from "../../libs/api.js";
-import { useNavigate } from "react-router";
 import PreviewLeftView from "./PreviewLeftView.jsx";
 
 const ArticlePreview = ({
-  editData,
   articleData,
   onDataChange,
+  onPublishPost,
   preview,
-  setPreview,
+  onPreviewFlagChange,
 }) => {
-  const navigate = useNavigate();
-  const createArticle = async () => {
-    if (editData) {
-      await client.patch(`/article/${editData.id}`, articleData);
-      navigate(`/article/${editData.id}`, { state: articleData });
-      return;
-    }
-    await client.post("/article", {
-      ...articleData,
-    });
-    navigate("/");
+  const publishPost = async () => {
+    await onPublishPost();
   };
 
   const handleCancel = () => {
-    setPreview(false);
+    onPreviewFlagChange(false);
   };
 
   return (
@@ -36,9 +25,7 @@ const ArticlePreview = ({
       <StyledRightPage>
         <StyledCancelBtn onClick={handleCancel}>취소</StyledCancelBtn>
         <Link to='/'>
-          <StyledPublishBtn onClick={() => createArticle()}>
-            출간하기
-          </StyledPublishBtn>
+          <StyledPublishBtn onClick={publishPost}>출간하기</StyledPublishBtn>
         </Link>
       </StyledRightPage>
     </StyledPreview>

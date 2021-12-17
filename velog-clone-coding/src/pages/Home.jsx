@@ -7,7 +7,7 @@ import SeriesCategory from "./SeriesCategory";
 import styled from "styled-components";
 import { Route, Routes } from "react-router";
 
-const Home = ({ match }) => {
+const Home = () => {
   return (
     <StyledHome>
       <Header />

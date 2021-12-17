@@ -3,12 +3,14 @@ import ArticleBody from "../components/write/ArticleBody";
 import ArticleFooter from "../components/write/ArticleFooter";
 import ArticleTags from "../components/write/ArticleTags";
 import ArticleTitle from "../components/write/ArticleTitle";
-import styled from "styled-components";
 import ArticlePreview from "../components/write/ArticlePreview";
-import { useLocation } from "react-router";
+import styled from "styled-components";
+import { useLocation, useNavigate } from "react-router";
+import { client } from "../libs/api.js";
 
 const Write = () => {
   const location = useLocation();
+  const navigate = useNavigate();
   const article = location.state;
   const [articleData, setArticleData] = useState(
     article ?? {
@@ -28,6 +30,23 @@ const Write = () => {
       ...rest,
     }));
   };
+
+  const handlePreviewPage = (flag) => {
+    setPreview(flag);
+  };
+
+  const publishPost = async () => {
+    if (article) {
+      await client.patch(`/article/${article.id}`, articleData);
+      navigate(`/article/${article.id}`, { state: articleData });
+      return;
+    }
+    const postData = await client.post("/article", {
+      ...articleData,
+    });
+    navigate("/", { state: postData });
+  };
+
   return (
     <StyledWritePage>
       <StyledArticle>
@@ -44,14 +63,14 @@ const Write = () => {
           onDataChange={handleDataChange}
         />
         <ArticleBody body={articleData.body} onDataChange={handleDataChange} />
-        <ArticleFooter setPreview={setPreview} />
+        <ArticleFooter onPreviewFlagChange={handlePreviewPage} />
       </StyledArticle>
       <ArticlePreview
-        editData={article}
         articleData={articleData}
         onDataChange={handleDataChange}
+        onPublishPost={publishPost}
         preview={preview}
-        setPreview={setPreview}
+        onPreviewFlagChange={handlePreviewPage}
       />
     </StyledWritePage>
   );

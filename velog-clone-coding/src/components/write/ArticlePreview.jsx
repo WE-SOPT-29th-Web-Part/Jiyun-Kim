@@ -1,46 +1,31 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styled, { css } from "styled-components";
-import { client } from "../../libs/api.js";
 import PreviewLeftView from "./PreviewLeftView.jsx";
 
 const ArticlePreview = ({
   articleData,
-  setArticleData,
+  onDataChange,
+  onPublishPost,
   preview,
-  setPreview,
+  onPreviewFlagChange,
 }) => {
-  const createArticle = async () => {
-    const { data } = await client.get("/article");
-    const id = data.length + 1;
-    const now = new Date();
-    const date = `${now.getFullYear()}년 ${
-      now.getMonth() + 1
-    }월 ${now.getDate()}일`;
-    await client.post("/article", {
-      ...articleData,
-      id,
-      date,
-    });
+  const publishPost = async () => {
+    await onPublishPost();
   };
 
   const handleCancel = () => {
-    setPreview(false);
+    onPreviewFlagChange(false);
   };
 
   return (
     <StyledPreview preview={preview}>
-      <PreviewLeftView
-        articleData={articleData}
-        setArticleData={setArticleData}
-      />
+      <PreviewLeftView articleData={articleData} onDataChange={onDataChange} />
       <StyledCenterBar></StyledCenterBar>
       <StyledRightPage>
         <StyledCancelBtn onClick={handleCancel}>취소</StyledCancelBtn>
         <Link to='/'>
-          <StyledPublishBtn onClick={() => createArticle()}>
-            출간하기
-          </StyledPublishBtn>
+          <StyledPublishBtn onClick={publishPost}>출간하기</StyledPublishBtn>
         </Link>
       </StyledRightPage>
     </StyledPreview>

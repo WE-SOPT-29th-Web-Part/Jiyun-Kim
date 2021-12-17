@@ -1,20 +1,17 @@
 import React from "react";
-import { useHistory } from "react-router";
+import { useNavigate } from "react-router";
 import styled from "styled-components";
 import { ReactComponent as BackArrow } from "../../assets/icons/keyboard_backspace.svg";
 
-const ArticleFooter = ({ setPreview }) => {
+const ArticleFooter = ({ onPreviewFlagChange }) => {
   const handlePost = async () => {
-    setPreview(true);
+    onPreviewFlagChange(true);
   };
-  const history = useHistory();
-  const handleClickBack = () => {
-    history.goBack();
-  };
+  const navigate = useNavigate();
 
   return (
     <StyledFooter>
-      <StyledBack onClick={handleClickBack}>
+      <StyledBack onClick={() => navigate("/")}>
         <BackArrow />
         <span>나가기</span>
       </StyledBack>
